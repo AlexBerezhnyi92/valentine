@@ -20,6 +20,7 @@
   --ring: 0 0 0 4px rgba(255, 77, 141, 0.35);
 
   --arena-h: 92px;
+  --boop-px: 8px;
 }
 
 * {
@@ -586,7 +587,8 @@ body {
     transform: translate(-50%, -50%) scale(calc(var(--no-scale, 1) * 1));
   }
   55% {
-    transform: translate(-50%, -50%) scale(calc(var(--no-scale, 1) * 1.07)) rotate(1.2deg);
+    transform: translate(-50%, -50%) translateY(calc(var(--boop-px) * -1))
+      scale(calc(var(--no-scale, 1) * 1.07)) rotate(1.2deg);
   }
   100% {
     transform: translate(-50%, -50%) scale(calc(var(--no-scale, 1) * 1)) rotate(0deg);
@@ -842,7 +844,8 @@ body {
 
 @media (max-width: 540px) {
   :root {
-    --arena-h: 112px;
+    --arena-h: 142px;
+    --boop-px: 30px;
   }
   .arena {
     grid-template-columns: 1fr;

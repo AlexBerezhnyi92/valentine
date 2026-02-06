@@ -2,6 +2,13 @@
   const $ = (sel, root = document) => root.querySelector(sel);
 
   const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+  const isMobileLayout = () => {
+    try {
+      return window.matchMedia?.("(max-width: 540px)")?.matches ?? false;
+    } catch (_) {
+      return false;
+    }
+  };
 
   const headlineEl = $("#headline");
   const bgHeartsEl = $("#bgHearts");
@@ -235,8 +242,20 @@
     const bw = noBtn.offsetWidth;
     const bh = noBtn.offsetHeight;
 
-    const cx = clamp(a.width * 0.72, 12 + bw / 2, a.width - 12 - bw / 2);
-    const cy = clamp(a.height * 0.55, 12 + bh / 2, a.height - 12 - bh / 2);
+    let cx;
+    let cy;
+
+    if (isMobileLayout()) {
+      const pad = 12;
+      const gap = 12;
+      const yesR = getRectRelativeToArena(yesBtn);
+      cx = clamp(yesR.left + yesR.width / 2, pad + bw / 2, a.width - pad - bw / 2);
+      cy = clamp(yesR.bottom + gap + bh / 2, pad + bh / 2, a.height - pad - bh / 2);
+    } else {
+      cx = clamp(a.width * 0.72, 12 + bw / 2, a.width - 12 - bw / 2);
+      cy = clamp(a.height * 0.55, 12 + bh / 2, a.height - 12 - bh / 2);
+    }
+
     lastPos = { x: cx, y: cy };
     placeNoButtonAt(cx, cy);
     updateNoButtonDifficulty();
