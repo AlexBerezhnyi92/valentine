@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ff4d8d" />
+    <meta name="description" content="Тихе «привіт» і одне дуже важливе питання." />
+    <title>Для тебе 💘</title>
+
+    <link rel="preconnect" href="https://media1.tenor.com" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true">
+      <div class="bg__glow"></div>
+      <div class="bg__grain"></div>
+      <div class="bg__hearts" id="bgHearts"></div>
+    </div>
+
+    <main class="page">
+      <section class="scene" aria-label="Valentine scene">
+        <div class="card scene__panel" id="questionCard" role="region" aria-label="Valentine question">
+          <div class="card__sparkle" aria-hidden="true"></div>
+
+          <div class="scene__left">
+            <p class="scene__kicker">Я трохи хвилююсь…</p>
+
+            <h1 class="headline scene__headline" id="headline">
+              Можна я буду твоєю <span class="headline__accent">Валентинкою</span>?
+            </h1>
+
+            <p class="scene__sub" id="statusLine">Без гучних слів. Просто… хочу бути поруч.</p>
+
+            <div class="arena scene__arena" id="arena" aria-label="Answer buttons area">
+              <button class="btn btn--yes" id="yesBtn" type="button">
+                <span class="btn__label">Так <span aria-hidden="true">💖</span></span>
+                <span class="btn__shine" aria-hidden="true"></span>
+              </button>
+
+              <button class="btn btn--no" id="noBtn" type="button">
+                <span class="btn__label">Не знаю <span aria-hidden="true">🙈</span></span>
+              </button>
+
+              <div class="tooltip" id="noTooltip" role="status" aria-live="polite" aria-atomic="true"></div>
+            </div>
+          </div>
+
+          <div class="scene__right" aria-hidden="true">
+            <figure class="gif gif--hero scene__gif">
+              <img
+                src="https://media1.tenor.com/m/P1RYmkaIo-IAAAAd/cat-cat-kiss.gif"
+                width="360"
+                height="270"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+                alt=""
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div class="scene__result" id="resultCard" hidden aria-label="Valentine result">
+          <img
+            class="scene__resultImg"
+            src="https://media1.tenor.com/m/EVQMYLSpOsUAAAAM/peach-goma.gif"
+            width="520"
+            height="360"
+            loading="lazy"
+            decoding="async"
+            referrerpolicy="no-referrer"
+          />
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
